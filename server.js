@@ -22,12 +22,11 @@ app.use(cors());
 app.use('/api/v1/users',require('./routes/userRoute'))
 app.use('/api/v1/transactions',require('./routes/transactionRoutes'))
 
-//static files
-// app.use(express.static(path.join(__dirname, "./client/build")));
-
-// app.get("*", function (req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+app.use(cors({
+  origin: 'https://expense-frontend-m3yyjyhqn-mahin-hussains-projects.vercel.app/', 
+  methods: 'GET,POST',
+  credentials: true // Allow credentials if needed
+}));
 
 //port
 const PORT= process.env.PORT || 8080;
